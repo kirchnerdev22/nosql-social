@@ -8,11 +8,9 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static('public'));
 
-mongoose.connect(process.env.MONGODB_URI || "mongodb://127.0.0.1:27017/", {
-    useFindAndModify: false,
+mongoose.connect(process.env.MONGODB_URI || "mongodb://127.0.0.1:27017/nosqlDB", {
     useNewUrlParser: true,
     useUnifiedTopology:true,
-    useCreateIndex: true,
 });
 
 mongoose.set("debug", true);
