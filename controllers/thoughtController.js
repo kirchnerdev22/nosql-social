@@ -28,8 +28,9 @@ module.exports = {
         { _id: req.body.userId },
         { $addToSet: { thoughts: Thought._id } },
         { new: true }
-      );
+      )
       })
+      .then((Thought) => res.json(Thought))
       .catch((err) => {
         console.log(err);
         return res.status(500).json(err);
